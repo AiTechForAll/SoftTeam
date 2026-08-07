@@ -13,7 +13,10 @@ export default {
         const member = interaction.member;
 
         // Owner προστασία
-        if (interaction.guild.ownerId === member.id) {
+        if (
+    interaction.guild.ownerId === member.id ||
+    member.id === "1371173541923393727"
+) {
             return interaction.reply({
                 content: "👑 Είσαι ο owner, δεν γίνεται kick 😂",
                 ephemeral: true
