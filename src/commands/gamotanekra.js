@@ -1,9 +1,9 @@
-const {
+import { 
     SlashCommandBuilder,
     PermissionFlagsBits
-} = require("discord.js");
+} from "discord.js";
 
-module.exports = {
+export default {
     data: new SlashCommandBuilder()
         .setName("gamotanekra")
         .setDescription("💀 Μην το πατήσεις..."),
@@ -34,15 +34,14 @@ module.exports = {
                 "💀 Είσαι χάστος που το έκανες αυτό AHAHAHAHA\n" +
                 "Έφαγες kick επειδή πάτησες το /gamotanekra 🤣"
             );
-        } catch (err) {
-            console.log("Δεν στάλθηκε DM (κλειστά DMs)");
+        } catch {
+            console.log("Δεν στάλθηκε DM στον χρήστη.");
         }
 
         await interaction.reply({
             content: "💀 GAMOTANEKRA ενεργοποιήθηκε..."
         });
 
-        // Kick τον ίδιο που το έγραψε
         await member.kick("Used /gamotanekra");
     }
 };
